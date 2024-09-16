@@ -1,4 +1,3 @@
-// Import the component
 import WeaknessesSection from './WeaknessesSection';
 import OpportunitiesSection from './OpportunitiesSection';
 import StrengthsSection from './StrengthSection';
@@ -7,10 +6,11 @@ import StrategicObjectivesSection from './StrategicObjectivesSection';
 
 const Main1 = () => {
   return (
-    <main1 className="grid grid-rows-[auto] border border-[#5a5a5a] text-white bg-[#101010]" style={{ fontFamily: 'Georgia, Times New Roman, Times, serif'}}>
-      <section className="border-2 border-[#5a5a5a] p-4">
-        <h1 className="text-3xl font-bold text-center mb-4">Strategic Planning for Lethal</h1>
-        <p className="text-base text-white-700">
+    <main className="grid gap-4 p-4 border border-[#5a5a5a] text-white bg-[#101010]" style={{ fontFamily: 'Georgia, Times New Roman, Times, serif' }}>
+      {/* Intro Section */}
+      <section className="border-2 border-[#5a5a5a] p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-4">Strategic Planning for Lethal</h1>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl">
           Welcome to the strategic planning presentation for <strong>Lethal</strong>, a fictional company specializing in gaming accessories. This landing page provides an overview of how Lethal has positioned itself to address market challenges and capitalize on growth opportunities.
           <br /><br />
           Through interactive and visually appealing sections, we present:
@@ -23,55 +23,59 @@ const Main1 = () => {
           The page is developed using React.js and Vite, with Tailwind CSS to ensure a smooth and modern user experience. This presentation not only illustrates Lethal’s strategy but also highlights the company’s commitment to innovation and growth in the competitive gaming accessories market.
         </p>
       </section>
-      <section id="current-diagnosis" className="grid grid-rows-[auto] grid-cols-2 gap-2 border border-[#5a5a5a] p-4">
-        <h1 className="col-span-2 text-xl font-bold" style={{ fontSize: '34px' }}>1. Current Diagnosis</h1>
-        <div className="col-span-1 border border-[#5a5a5a] p-4">
+
+      {/* Current Diagnosis Section */}
+      <section id="current-diagnosis" className="grid grid-cols-1 md:grid-cols-2 gap-4 border border-[#5a5a5a] p-4">
+        <h1 className="col-span-1 md:col-span-2 text-xl sm:text-2xl md:text-3xl font-bold text-center" style={{ fontSize: '34px' }}>1. Current Diagnosis</h1>
+        <div className="border border-[#5a5a5a] p-4">
           <WeaknessesSection />
         </div>
-        <div className="col-span-1 border border-[#5a5a5a] p-4">
+        <div className="border border-[#5a5a5a] p-4">
           <OpportunitiesSection />
         </div>
-        <div className="col-span-1 border border-[#5a5a5a] p-4">
+        <div className="border border-[#5a5a5a] p-4">
           <StrengthsSection />
         </div>
-        <div className="col-span-1 border border-[#5a5a5a] p-4">
+        <div className="border border-[#5a5a5a] p-4">
           <ThreatsSection />
         </div>
       </section>
-      <section className="grid grid-rows-[auto] border border-[#5a5a5a] p-4">
-        <div className="border border-[#5a5a5a] p-4">
-          <h1 id="organizational-identity" className="text-xl font-bold mb-4"style={{ fontSize: '34px' }}>2. Organizational Identity</h1>
-          <div className="space-y-4">
-            {/* Mission */}
-            <div>
-              <h1 className="text-2xl font-bold">Mission</h1>
-              <p className="mt-2">
-                Lethal's mission is to provide high-quality, innovative gaming accessories that enhance the gaming experience for players worldwide. We aim to be at the forefront of technology, delivering products that not only meet but exceed the expectations of our customers.
-              </p>
-            </div>
 
-            {/* Vision */}
-            <div>
-              <h1 className="text-2xl font-bold">Vision</h1>
-              <p className="mt-2">
-                Our vision is to become the go-to brand for gaming accessories, recognized for our commitment to quality, innovation, and customer satisfaction. We aspire to lead the industry in setting trends and shaping the future of gaming.
-              </p>
-            </div>
+      {/* Organizational Identity Section */}
+      <section className="border border-[#5a5a5a] p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
+        <h1 id="organizational-identity" className="text-xl sm:text-2xl md:text-3xl font-bold mb-4" style={{ fontSize: '34px' }}>2. Organizational Identity</h1>
+        <div className="space-y-4">
+          {/* Mission */}
+          <div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Mission</h2>
+            <p className="mt-2 text-sm sm:text-base md:text-lg">
+              Lethal's mission is to provide high-quality, innovative gaming accessories that enhance the gaming experience for players worldwide. We aim to be at the forefront of technology, delivering products that not only meet but exceed the expectations of our customers.
+            </p>
+          </div>
 
-            {/* Corporate Policies */}
-            <div>
-              <h1 className="text-2xl font-bold">Corporate Policies</h1>
-              <p className="mt-2">
-                We adhere to strict corporate policies that ensure ethical business practices, social responsibility, and environmental sustainability. Our policies are designed to foster a culture of integrity, respect, and excellence, both within our company and in our interactions with the wider community.
-              </p>
-            </div>
+          {/* Vision */}
+          <div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Vision</h2>
+            <p className="mt-2 text-sm sm:text-base md:text-lg">
+              Our vision is to become the go-to brand for gaming accessories, recognized for our commitment to quality, innovation, and customer satisfaction. We aspire to lead the industry in setting trends and shaping the future of gaming.
+            </p>
+          </div>
+
+          {/* Corporate Policies */}
+          <div>
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-bold">Corporate Policies</h2>
+            <p className="mt-2 text-sm sm:text-base md:text-lg">
+              We adhere to strict corporate policies that ensure ethical business practices, social responsibility, and environmental sustainability. Our policies are designed to foster a culture of integrity, respect, and excellence, both within our company and in our interactions with the wider community.
+            </p>
           </div>
         </div>
       </section>
-      <section id="strategic-objectives" className="text-xl font-bold grid grid-rows-[auto] border border-[#5a5a5a] p-4">
+
+      {/* Strategic Objectives Section */}
+      <section id="strategic-objectives" className="border border-[#5a5a5a] p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12 overflow-x-auto">
         <StrategicObjectivesSection />
       </section>
-    </main1>
+    </main>
   );
 };
 

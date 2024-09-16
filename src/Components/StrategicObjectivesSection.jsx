@@ -7,7 +7,7 @@ const strategicObjectives = [
     { id: 5, goal: "Reduce Production Costs", target: "20%", progress: "18%", compliance: 90 }
   ];
   
-  // Define a function to determine the status and corresponding color
+  // Function to determine the status and corresponding color
   const getStatus = (compliance) => {
     if (compliance <= 35) {
       return { text: "Critical", color: "text-red-500" };
@@ -21,35 +21,53 @@ const strategicObjectives = [
   // Strategic Objectives Section Component
   const StrategicObjectivesSection = () => {
     return (
-      <div className="border border-[#5a5a5a] p-4">
+      <div className="overflow-x-auto">
         <h1 className="text-2xl font-bold mb-4">3. Strategic Objectives</h1>
-        <table className="w-full border-collapse">
-          <thead>
-            <tr>
-              <th className="border border-[#5a5a5a] p-2">Code</th>
-              <th className="border border-[#5a5a5a] p-2">Objective</th>
-              <th className="border border-[#5a5a5a] p-2">Target</th>
-              <th className="border border-[#5a5a5a] p-2">Progress</th>
-              <th className="border border-[#5a5a5a] p-2">Compliance</th>
-              <th className="border border-[#5a5a5a] p-2">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {strategicObjectives.map((objective) => {
-              const status = getStatus(objective.compliance);
-              return (
-                <tr key={objective.id}>
-                  <td className="border border-[#5a5a5a] p-2">{objective.id}</td>
-                  <td className="border border-[#5a5a5a] p-2">{objective.goal}</td>
-                  <td className="border border-[#5a5a5a] p-2">{objective.target}</td>
-                  <td className="border border-[#5a5a5a] p-2">{objective.progress}</td>
-                  <td className="border border-[#5a5a5a] p-2">{objective.compliance}%</td>
-                  <td className={`border border-[#5a5a5a] p-2 ${status.color}`}>{status.text}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        
+        {/* Table for larger screens */}
+        <div className="hidden md:block">
+          <table className="min-w-full border-collapse">
+            <thead>
+              <tr className="text-white">
+                <th className="border border-[#5a5a5a] p-2">Code</th>
+                <th className="border border-[#5a5a5a] p-2">Objective</th>
+                <th className="border border-[#5a5a5a] p-2">Target</th>
+                <th className="border border-[#5a5a5a] p-2">Progress</th>
+                <th className="border border-[#5a5a5a] p-2">Compliance</th>
+                <th className="border border-[#5a5a5a] p-2">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {strategicObjectives.map((objective) => {
+                const status = getStatus(objective.compliance);
+                return (
+                  <tr key={objective.id} className="border-t border-[#5a5a5a]">
+                    <td className="border border-[#5a5a5a] p-2">{objective.id}</td>
+                    <td className="border border-[#5a5a5a] p-2">{objective.goal}</td>
+                    <td className="border border-[#5a5a5a] p-2">{objective.target}</td>
+                    <td className="border border-[#5a5a5a] p-2">{objective.progress}</td>
+                    <td className="border border-[#5a5a5a] p-2">{objective.compliance}%</td>
+                    <td className={`border border-[#5a5a5a] p-2 ${status.color}`}>{status.text}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+        
+        {/* Mobile view for smaller screens */}
+        <div className="block md:hidden">
+          {strategicObjectives.map((objective) => (
+            <div key={objective.id} className="border border-[#5a5a5a] p-4 mb-4 text-white">
+              <h2 className="text-lg font-bold">Objective {objective.id}</h2>
+              <p><strong>Goal:</strong> {objective.goal}</p>
+              <p><strong>Target:</strong> {objective.target}</p>
+              <p><strong>Progress:</strong> {objective.progress}</p>
+              <p><strong>Compliance:</strong> {objective.compliance}%</p>
+              <p className={`${getStatus(objective.compliance).color}`}><strong>Status:</strong> {getStatus(objective.compliance).text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   };
